@@ -1,5 +1,13 @@
 # toysector
 
+This repository contains the code and materials for the paper “Understanding Energy-Based Modeling of Proteins via an Empirically Motivated Minimal Ground Truth Model” by Peter William Fields, Vudtiwat Ngampruetikorn, Rama Ranganathan, David J. Schwab, and Stephanie Palmer, presented at the Synergy of Scientific and Machine Learning Modeling Workshop, ICML 2023. OpenReview ID: vxn5QGPFyi, ( https://openreview.net/forum?id=vxn5QGPFyi )
+
+---
+
+For fitting energy-based models, this repo utilizies SpinModels.jl at ( https://github.com/wavengampruetikorn/SpinModels.jl )
+
+---
+
 This code base is using the Julia Language and [DrWatson](https://juliadynamics.github.io/DrWatson.jl/stable/)
 to make a reproducible scientific project named
 > toysector

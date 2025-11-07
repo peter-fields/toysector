@@ -64,6 +64,7 @@ params_sets = Dict{Symbol,Any}(
 samples_to_fit_dict_list = dict_list(samples_to_fit_all)
 
 job_id = parse(Int64, ARGS[1])
+#job_id=1
 
 ### helper funcs
 function get_fpos_from_samps(results,θsec)
@@ -78,19 +79,11 @@ function get_fpos_from_samps(results,θsec)
     return f_pos, H_
 end
 function write_ents_f_pos_to_d(Tsec, m, Tsamp, results,d, mdl_str)
-    if Tsamp == 1
         θpw, θsec = init_toy_model( Tsec, m=m )
         f_pos, H_= get_fpos_from_samps(results,θsec)
-        if isnothing(d[:true_entropy])
             d[:true_entropy] = H_toymodel( θpw, θsec )[:Htotal]
-        end
-        if isnothing(d[:false_pos_rate])
             d[:false_pos_rate]=f_pos
-        end
-        if isnothing(d[:fit_entropy])
             d[:fit_entropy]=H_
-        end
-    end
     BSON.@save mdl_str*".bson" d
 end
 
@@ -220,3 +213,5 @@ samples_to_fit_info=samples_to_fit_dict_list[job_id]
         #also save the vector of dictionaries with results
     #     BSON.@save swp_ds_string swp_ds
     end
+
+@printf "\n finished! \n"

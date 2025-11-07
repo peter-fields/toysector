@@ -77,28 +77,28 @@ function sample_toy_model( M, rawJ, θsec ; Npairs=5, Nnoise=18 )
     return cat(z_pw, z_noise, z_sec, dims=2)
 end
 
-function main(;  M=500,  seed=123, 
-            FloatType=Float32, Npairs=5, Nnoise=18, q=5, rawJ=1, Ξ=5, S=7, m=3  )
-    # M is number of samples
-    sampledir(args...) = datadir("toysector_q=5","nsamples=$M", args...)
-    isdir(sampledir()) || mkpath( sampledir() )
+# function main(;  M=500,  seed=123, 
+#             FloatType=Float32, Npairs=5, Nnoise=18, q=5, rawJ=1, Ξ=5, S=7, m=3  )
+#     # M is number of samples
+#     sampledir(args...) = datadir("toysector_q=5","nsamples=$M", args...)
+#     isdir(sampledir()) || mkpath( sampledir() )
     
-    sector_temps = [0.2, 0.25, 0.3, 0.4, 0.5, 0.6]
-    Random.seed!(seed)
+#     sector_temps = [0.2, 0.25, 0.3, 0.4, 0.5, 0.6]
+#     Random.seed!(seed)
     
-    for Tsec in sector_temps
-        filename = sampledir(@sprintf("sector_temp=%.2f_samples.bson", Tsec))
-        _, θsec = init_toy_model(Tsec; FloatType=FloatType, 
-                rawJ=rawJ, Ξ=Ξ, q=q, S=S, m=m, npairwise=2*Npairs )
-        z = sample_toy_model( M, rawJ, θsec ; Npairs=Npairs, Nnoise=Nnoise)
-        bson(filename, samples = z)
-    end
+#     for Tsec in sector_temps
+#         filename = sampledir(@sprintf("sector_temp=%.2f_samples.bson", Tsec))
+#         _, θsec = init_toy_model(Tsec; FloatType=FloatType, 
+#                 rawJ=rawJ, Ξ=Ξ, q=q, S=S, m=m, npairwise=2*Npairs )
+#         z = sample_toy_model( M, rawJ, θsec ; Npairs=Npairs, Nnoise=Nnoise)
+#         bson(filename, samples = z)
+#     end
     
-end
+# end
     
-seeds    = [123, 456, 98765, 12345, 123456789, 111000111,  321, 4444 ]
-nsamples = [500, 1000, 2000, 5000, 10_000, 20_000, 50_000, 100_000]
-for (M, seed) in zip(nsamples, seeds) 
-    main( ; M=M, seed=seed )
-end
+# seeds    = [123, 456, 98765, 12345, 123456789, 111000111,  321, 4444 ]
+# nsamples = [500, 1000, 2000, 5000, 10_000, 20_000, 50_000, 100_000]
+# for (M, seed) in zip(nsamples, seeds) 
+#     main( ; M=M, seed=seed )
+# end
 

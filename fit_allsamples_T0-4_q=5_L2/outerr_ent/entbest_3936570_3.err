@@ -1,3 +1,0 @@
-ERROR: Unable to locate a modulefile for 'julia/1.7.2'
-ERROR: Unable to locate a modulefile for 'python/anaconda-2020.02'
-/var/spool/slurm/d/job3936573/slurm_script: line 22: julia: command not found

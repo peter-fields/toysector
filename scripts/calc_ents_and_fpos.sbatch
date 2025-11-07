@@ -5,7 +5,7 @@
 #SBATCH --output=outerr_ent/ent_%A_%a.out
 #SBATCH --error=outerr_ent/ent_%A_%a.err
 #SBATCH --time=1-12:00:00
-#SBATCH --partition=broadwl
+#SBATCH --partition=dali
 #SBATCH --ntasks=8
 #SBATCH --mem=16G
 #SBATCH --account=pi-sepalmer
@@ -18,4 +18,4 @@ module load python/anaconda-2020.02
 
 
 # Add lines here to run your computations.
-calc_ents_and_fpos.jl $SLURM_ARRAY_TASK_ID
+julia calc_ents_and_fpos.jl $SLURM_ARRAY_TASK_ID
