@@ -33,7 +33,7 @@ The Jupyter notebooks use IJulia. This package is not in the project environment
 
 ---
 
-Synthetic training data and fir models can be found at https://huggingface.co/datasets/peter-fields/toysector-data
+Synthetic training data and fit models can be found at https://huggingface.co/datasets/peter-fields/toysector-data
 
 ```
 # From the root of your cloned toysector repo
@@ -46,8 +46,12 @@ git clone https://huggingface.co/datasets/peter-fields/toysector-data toysector_
 ```
 
 This ensures proper directory structure:
+
 toysector/
+
 └── data/
+
     └── toysector_q=5/
+    
         (data files here)
 
