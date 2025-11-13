@@ -46,12 +46,9 @@ git clone https://huggingface.co/datasets/peter-fields/toysector-data toysector_
 ```
 
 This ensures proper directory structure:
-
+```
 toysector/
-
 └── data/
-
     └── toysector_q=5/
-    
         (data files here)
-
+```
