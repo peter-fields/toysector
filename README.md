@@ -27,4 +27,27 @@ To (locally) reproduce this project, do the following:
 This will install all necessary packages for you to be able to run the scripts and
 everything should work out of the box, including correctly finding local paths.
 
+---
+
 The Jupyter notebooks use IJulia. This package is not in the project environment, so ensure that IJulia is installed in your global Julia environment if it is not already (e.g. via Pkg.add("IJulia")) before running the notebooks.
+
+---
+
+Synthetic training data and fir models can be found at https://huggingface.co/datasets/peter-fields/toysector-data
+
+```
+# From the root of your cloned toysector repo
+mkdir -p toysector/data
+cd toysector/data
+
+# Download the dataset folder from Hugging Face
+git lfs install
+git clone https://huggingface.co/datasets/peter-fields/toysector-data toysector_q=5
+```
+
+This ensures proper directory structure:
+toysector/
+└── data/
+    └── toysector_q=5/
+        (data files here)
+
